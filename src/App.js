@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Auth from './pages/Auth';
+import Cart from './pages/Cart';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 function App() {
+  const [isLogedIn, setIsLogedIn] = useState(false);
+  const token = localStorage.getItem('eshop_jwt');
+
+  useEffect(() => {
+    if (token) {
+      setIsLogedIn(true);
+    }
+  }, [token]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar isLogedIn={isLogedIn} />
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/auth/login' element={<Auth setIsLogedIn={setIsLogedIn} login />} />
+        <Route path='/auth/register' element={<Auth register />} />
+        <Route path='/cart' element={<Cart isLogedIn={isLogedIn} />} />
+        <Route path='/profile' element={<Profile isLogedIn={isLogedIn} />} />
+      </Routes>
+    </Router>
   );
 }
 
