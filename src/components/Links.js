@@ -19,11 +19,17 @@ function Links({ children, to, navbarBrand, className, btnPrimary, btnSuccess, b
   } else if (navbarBrand) {
     variant = 'navbar-brand';
   } else {
-    variant = 'nav-link';
+    variant = 'default';
   }
 
   return (
-    <Link className={`${variant} ${className}`} to={to}>{children}</Link>
+    <Link
+      className={`${variant} ${className ? className : ''}`}
+      to={to}
+      style={(variant === 'default') ? { textDecoration: 'none', color: 'inherit' } : {}}
+    >
+      {children}
+    </Link>
   );
 }
 

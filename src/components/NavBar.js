@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MdShoppingCart, MdPerson } from 'react-icons/md';
 import Links from './Links';
@@ -20,14 +20,14 @@ function NavBar({ isLogedIn }) {
               </Links>
             </>
             :
-            <>
-              <Links btnOutlinePrimary className='me-3' to='/auth/login'>
+            <Row>
+              <Links btnOutlinePrimary className='col me-3' to='/auth/login'>
                 Login
               </Links>
-              <Links btnPrimary to='/auth/register'>
+              <Links className='col' btnPrimary to='/auth/register'>
                 Register
               </Links>
-            </>
+            </Row>
           }
         </Nav>
       </Container>
