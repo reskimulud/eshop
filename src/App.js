@@ -22,8 +22,8 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/auth/login' element={<Auth setIsLogedIn={setIsLogedIn} login />} />
-        <Route path='/auth/register' element={<Auth register />} />
+        <Route path='/auth/login' element={<Auth isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} login />} />
+        <Route path='/auth/register' element={<Auth isLogedIn={isLogedIn} register />} />
         <Route path='/cart' element={<Cart isLogedIn={isLogedIn} />} />
         <Route path='/profile' element={<Profile isLogedIn={isLogedIn} />} />
       </Routes>
