@@ -15,7 +15,7 @@ function Cart({ isLogedIn }) {
 
   useEffect(() => {
     if (!hasFetched) {
-      axios.get('http://localhost:5000/carts', {
+      axios.get(`${getBaseUrl()}/carts`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
