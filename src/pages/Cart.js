@@ -53,7 +53,7 @@ function Cart({ isLogedIn }) {
         <Card key={cart.id} className='mt-0 p-3 m-3 p-md-4'>
           <Row>
             <Col className='col-1'>
-              <Card.Img style={imageStyle} src={`http://localhost:5000/products/image/${cart.image}`} />
+              <Card.Img style={imageStyle} src={`${getBaseUrl()}/products/image/${cart.image}`} />
             </Col>
             <Col className='col-10'>
               <Card.Title>{cart.title}</Card.Title>

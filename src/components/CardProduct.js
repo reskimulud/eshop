@@ -28,7 +28,7 @@ function CardProduct({ item, isLogedIn }) {
 
   return (
     <Card style={cardStyle}>
-      <Card.Img style={imageStyle} variant="top" src={item.image} />
+      <Card.Img style={imageStyle} variant="top" src={`${getBaseUrl()}/products/image${item.image}`} />
       <Card.Body>
         <Card.Title>
           <Links to='/product'>
