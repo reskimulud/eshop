@@ -1,13 +1,29 @@
 import React from 'react';
-import { Card, Badge } from 'react-bootstrap';
+import { Card, Badge, Button } from 'react-bootstrap';
 import Links from './Links';
 import { MdShoppingCart } from 'react-icons/md';
+import axios from 'axios';
 
-function CardProduct({ item }) {
+function CardProduct({ item, isLogedIn }) {
   const cardStyle = { width: 250, minHeight: 200, margin: 'auto', padding: 10 };
   const imageStyle = { width: '100%', objectFit: 'contain', padding: 5, maxHeight: 200 };
 
+  const token = localStorage.getItem('eshop_jwt');
+
   const price = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(item.price);
+
+  const addToCart = () => {
+    if (!isLogedIn) {
+      alert('Login terlebih dahulu');
+    } else {
+      axios.post('http://localhost:5000/carts', {productId: item.id, quantity: 1}, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      }).then(res => alert(res.data.message))
+        .catch(err => alert(err.response.data.message))
+    }
+  };
 
   return (
     <Card style={cardStyle}>
@@ -23,9 +39,9 @@ function CardProduct({ item }) {
           <h6>
             <Badge bg='secondary'>{price}</Badge>
           </h6>
-          <Links to='#' btnPrimary>
+          <Button onClick={addToCart} className='btn btn-primary'>
             <MdShoppingCart />
-          </Links>
+          </Button>
         </div>
       </Card.Body>
     </Card>

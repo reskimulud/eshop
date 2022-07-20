@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import CardProduct from './CardProduct';
 
-function CardList() {
+function CardList({isLogedIn}) {
 
   const [products, setProducts] = useState([]);
 
@@ -16,7 +16,7 @@ function CardList() {
       <Row xs={1} xl={4} sm={2} lg={3} md={3}>
         {products.map((product) => (
           <Col key={product.id} className='mb-4'>
-            <CardProduct item={product} />
+            <CardProduct isLogedIn={isLogedIn} item={product} />
           </Col>
         ))}
       </Row>

@@ -21,11 +21,11 @@ function App() {
       <NavBar isLogedIn={isLogedIn} />
 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home isLogedIn={isLogedIn} />} />
         <Route path='/auth/login' element={<Auth isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} login />} />
         <Route path='/auth/register' element={<Auth isLogedIn={isLogedIn} register />} />
         <Route path='/cart' element={<Cart isLogedIn={isLogedIn} />} />
-        <Route path='/profile' element={<Profile isLogedIn={isLogedIn} />} />
+        <Route path='/profile' element={<Profile isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} />} />
       </Routes>
     </Router>
   );
