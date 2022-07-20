@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import { MdHighlightOff } from 'react-icons/md';
+import getBaseUrl from '../utils';
 
 function Cart({ isLogedIn }) {
   const [carts, setCarts] = useState([]);
@@ -35,7 +36,7 @@ function Cart({ isLogedIn }) {
   const imageStyle = { width: '100%', objectFit: 'contain', maxHeight: 80 };
 
   const deleteCartItem = (itemId) => {
-    axios.delete(`http://localhost:5000/carts/${itemId}`, {
+    axios.delete(`${getBaseUrl()}/carts/${itemId}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },

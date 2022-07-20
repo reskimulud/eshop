@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
+import getBaseUrl from '../utils';
 
 function Profile({ isLogedIn, setIsLogedIn }) {
 
@@ -12,7 +13,7 @@ function Profile({ isLogedIn, setIsLogedIn }) {
   const token = localStorage.getItem('eshop_jwt');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/user', {
+    axios.get(`${getBaseUrl()}/user`, {
       headers: {
         'Authorization': `Bearer ${token}`
       },

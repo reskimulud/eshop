@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 import axios from 'axios';
+import getBaseUrl from '../utils';
 
 function Auth({ login, register, isLogedIn, setIsLogedIn }) {
   const [name, setName] = useState('');
@@ -17,7 +18,7 @@ function Auth({ login, register, isLogedIn, setIsLogedIn }) {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (login) {
-      axios.post('http://localhost:5000/login', { email, password })
+      axios.post(`${getBaseUrl()}/login`, { email, password })
         .then(res => {
           localStorage.setItem('eshop_jwt', res.data.data.token);
           setIsLogedIn(true);
@@ -26,7 +27,7 @@ function Auth({ login, register, isLogedIn, setIsLogedIn }) {
     }
 
     if (register) {
-      axios.post('http://localhost:5000/register', { name, email, password })
+      axios.post(`${getBaseUrl()}/register`, { name, email, password })
         .then(res => {
           alert(res.data.message + '. Silahkan Login');
           navigate('/auth/login');
