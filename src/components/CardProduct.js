@@ -3,6 +3,7 @@ import { Card, Badge, Button } from 'react-bootstrap';
 import Links from './Links';
 import { MdShoppingCart } from 'react-icons/md';
 import axios from 'axios';
+import getBaseUrl from '../utils';
 
 function CardProduct({ item, isLogedIn }) {
   const cardStyle = { width: 250, minHeight: 200, margin: 'auto', padding: 10 };
@@ -16,7 +17,7 @@ function CardProduct({ item, isLogedIn }) {
     if (!isLogedIn) {
       alert('Login terlebih dahulu');
     } else {
-      axios.post('http://localhost:5000/carts', {productId: item.id, quantity: 1}, {
+      axios.post(`${getBaseUrl()}/carts`, {productId: item.id, quantity: 1}, {
         headers: {
           'Authorization': `Bearer ${token}`
         },
