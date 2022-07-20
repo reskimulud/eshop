@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import getBaseUrl from '../utils';
 import CardProduct from './CardProduct';
 
 function CardList({isLogedIn}) {
 
   const [products, setProducts] = useState([]);
+  console.log(getBaseUrl());
 
   useEffect(() => {
-    axios.get('http://localhost:5000/products').then(res => setProducts(res.data.data.products));
+    axios.get(`${getBaseUrl()}/products`).then(res => setProducts(res.data.data.products));
   }, []);
 
   return (
