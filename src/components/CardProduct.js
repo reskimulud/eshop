@@ -3,15 +3,13 @@ import { Card, Badge, Button } from 'react-bootstrap';
 import Links from './Links';
 import { MdShoppingCart } from 'react-icons/md';
 import axios from 'axios';
-import getBaseUrl from '../utils';
+import { getBaseUrl, price } from '../utils';
 
 function CardProduct({ item, isLogedIn }) {
   const cardStyle = { width: 250, minHeight: 200, margin: 'auto', padding: 10 };
   const imageStyle = { width: '100%', objectFit: 'contain', padding: 5, maxHeight: 200 };
 
   const token = localStorage.getItem('eshop_jwt');
-
-  const price = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(item.price);
 
   const addToCart = () => {
     if (!isLogedIn) {
@@ -38,7 +36,7 @@ function CardProduct({ item, isLogedIn }) {
         <Card.Text>{item.description}</Card.Text>
         <div className='d-flex justify-content-between align-items-center'>
           <h6>
-            <Badge bg='secondary'>{price}</Badge>
+            <Badge bg='secondary'>{price(item.price)}</Badge>
           </h6>
           <Button onClick={addToCart} className='btn btn-primary'>
             <MdShoppingCart />

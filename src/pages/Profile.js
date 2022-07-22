@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
-import getBaseUrl from '../utils';
+import { getBaseUrl } from '../utils';
 
 function Profile({ isLogedIn, setIsLogedIn }) {
 

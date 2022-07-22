@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 import axios from 'axios';
-import getBaseUrl from '../utils';
+import { getBaseUrl } from '../utils';
 
 function Auth({ login, register, isLogedIn, setIsLogedIn }) {
   const [name, setName] = useState('');

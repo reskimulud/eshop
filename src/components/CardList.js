@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import getBaseUrl from '../utils';
+import { getBaseUrl } from '../utils';
 import CardProduct from './CardProduct';
 
 function CardList({isLogedIn}) {
