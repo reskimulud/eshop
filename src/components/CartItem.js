@@ -25,7 +25,7 @@ function CartItem({ item, setHasFetched }) {
     <Card key={item.id} className='mt-0 p-3 m-3 p-md-4'>
       <Row>
         <Col className='col-1'>
-          <Card.Img style={imageStyle} src={`${getBaseUrl()}/products/image/${item.image}`} />
+          <Card.Img style={imageStyle} src={item.image} />
         </Col>
         <Col className='col-10'>
           <Card.Title>{item.title}</Card.Title>
