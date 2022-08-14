@@ -10,7 +10,7 @@ function CardList({isLogedIn}) {
   console.log(getBaseUrl());
 
   useEffect(() => {
-    axios.get(`${getBaseUrl()}/products`).then(res => setProducts(res.data.data.products));
+    axios.get(`${getBaseUrl()}/products`).then(res => setProducts(res.data.data));
   }, []);
 
   return (
