@@ -21,7 +21,7 @@ function Cart({ isLogedIn }) {
         },
       }).then(res => {
         console.log('fetched');
-        setCarts(res.data.data);
+        setCarts(res.data.data.cart);
         setSubTotal(res.data.data.subTotal);
       })
       setHasFetched(true);
