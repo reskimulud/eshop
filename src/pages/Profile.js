@@ -18,7 +18,7 @@ function Profile({ isLogedIn, setIsLogedIn }) {
         'Authorization': `Bearer ${token}`
       },
     }).then(res => {
-      const { name, email } = res.data.data.user;
+      const { name, email } = res.data.data;
       setName(name);
       setEmail(email);
     }).catch(err => alert(err.response.data.message))
