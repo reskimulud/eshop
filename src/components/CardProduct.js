@@ -33,7 +33,11 @@ function CardProduct({ item, isLogedIn }) {
             {item.title}
           </Links>
         </Card.Title>
-        <Card.Text>{item.description}</Card.Text>
+        <Card.Text>
+          {
+            (item.description.length <= 64) ? item.description : item.description.substr(0, 64) + '...'
+          }
+        </Card.Text>
         <div className='d-flex justify-content-between align-items-center'>
           <h6>
             <Badge bg='secondary'>{price(item.price)}</Badge>
