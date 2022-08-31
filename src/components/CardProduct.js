@@ -29,7 +29,7 @@ function CardProduct({ item, isLogedIn }) {
       <Card.Img style={imageStyle} variant="top" src={item.image} />
       <Card.Body>
         <Card.Title>
-          <Links to='/product'>
+          <Links to={`/product/${item.id}`}>
             {item.title}
           </Links>
         </Card.Title>

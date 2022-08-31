@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Auth from './pages/Auth';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
+import Product from './pages/Product';
 import Profile from './pages/Profile';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/auth/register' element={<Auth isLogedIn={isLogedIn} register />} />
         <Route path='/cart' element={<Cart isLogedIn={isLogedIn} />} />
         <Route path='/profile' element={<Profile isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} />} />
+        <Route path='/product/:id' element={<Product />} />
       </Routes>
     </Router>
   );
